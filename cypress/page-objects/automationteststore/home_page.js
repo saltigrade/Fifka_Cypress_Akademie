@@ -1,3 +1,5 @@
+import { ProductSkinsheenBronzerStickPage } from "./product_skinsheen_bronzer_stick_page";
+
 export class HomePage {
   constructor() {
     this.storeUrl = "https://automationteststore.com/";
@@ -12,5 +14,6 @@ export class HomePage {
 
   clickSkinsheenBronzerStickName() {
     cy.get(this.skinsheenBronzerStickNameButton).click();
+    return new ProductSkinsheenBronzerStickPage();
   }
 }
