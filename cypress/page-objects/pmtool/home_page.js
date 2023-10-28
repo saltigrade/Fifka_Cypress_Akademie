@@ -1,10 +1,25 @@
 import { LoginPage } from "./login_page";
+import { ProjectInfo } from "./project_info";
 
 export class HomePage {
   constructor() {
-    this.profileSection = "#user_dropdown > a > i";
+    this.profileSection = "li#user_dropdown";
     this.logoutButton = "#logout";
+    this.projectsButton = "li#Projects";
+    this.addProject = "button[test_id = 'Add Project']";
   }
+
+  // mnou vytvořené selektory: profileSection, projectsButton a addProject
+
+  clickProjects() {
+    cy.get(this.projectsButton).click();
+    return this;
+  }
+  clickAddProject() {
+    cy.get(this.addProject).click();
+    return new ProjectInfo();
+  }
+
   clickProfileSec() {
     cy.get(this.profileSection).click();
     return this;
