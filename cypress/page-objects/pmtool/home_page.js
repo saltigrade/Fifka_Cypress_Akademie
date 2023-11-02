@@ -7,6 +7,8 @@ export class HomePage {
     this.logoutButton = "#logout";
     this.projectsButton = "li#Projects";
     this.addProject = "button[test_id = 'Add Project']";
+    this.welcomePageHeader = "#welcome-page-header";
+    cy.get(this.welcomePageHeader).should("be.visible");
   }
 
   // mnou vytvořené selektory: profileSection, projectsButton a addProject
