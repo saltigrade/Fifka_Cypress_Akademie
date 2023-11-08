@@ -7,11 +7,11 @@ describe("Login to pmtool using selectors", () => {
       .typeUsername("cy_podzim_2023")
       .typePassword("CypressPodzim")
       .clickLogin()
-      .clickProjects()
+      .openProjects()
       .clickAddProject()
       .typeName("Sabina")
       .clickSave()
-      .clickProfileSec()
+      .clickProfile()
       .clickLogout();
   });
 });

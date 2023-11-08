@@ -1,34 +1,11 @@
-import { LoginPage } from "./login_page";
-import { ProjectInfo } from "./project_info";
+import { HeaderSection } from "./header_sections";
+import { ProjectPage } from "./project_page";
 
-export class HomePage {
+export class HomePage extends HeaderSection {
   constructor() {
-    this.profileSection = "li#user_dropdown";
-    this.logoutButton = "#logout";
-    this.projectsButton = "li#Projects";
-    this.addProject = "button[test_id = 'Add Project']";
+    super();
+
     this.welcomePageHeader = "#welcome-page-header";
     cy.get(this.welcomePageHeader).should("be.visible");
-  }
-
-  // mnou vytvořené selektory: profileSection, projectsButton a addProject
-
-  clickProjects() {
-    cy.get(this.projectsButton).click();
-    return this;
-  }
-  clickAddProject() {
-    cy.get(this.addProject).click();
-    return new ProjectInfo();
-  }
-
-  clickProfileSec() {
-    cy.get(this.profileSection).click();
-    return this;
-  }
-
-  clickLogout() {
-    cy.get(this.logoutButton).click();
-    return new LoginPage();
   }
 }
