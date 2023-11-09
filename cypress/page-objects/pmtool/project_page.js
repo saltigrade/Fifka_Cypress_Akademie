@@ -1,3 +1,4 @@
+import { CreateProjectModal } from "./create_project_modal";
 import { HeaderSection } from "./header_sections";
 import { HomePage } from "./home_page";
 
@@ -12,7 +13,7 @@ export class ProjectPage extends HeaderSection {
 
   clickAddProject() {
     cy.get(this.addProject).click();
-    return this;
+    return CreateProjectModal;
   }
   typeName(name) {
     cy.get(this.nameInput).type(name);
