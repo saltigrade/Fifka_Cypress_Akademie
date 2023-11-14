@@ -1,15 +1,30 @@
 import { LoginPage } from "../../page-objects/pmtool/login_page";
+import { faker } from "@faker-js/faker";
 import { ProjectPage } from "../../page-objects/pmtool/project_page";
 
-describe("Self exercise PMTool - create new project and task", () => {
+describe("Self exercise E2E PMTool - create new project and task", () => {
   beforeEach(() => {
+    let username = Cypress.env("pmtool_username");
+    let password = Cypress.env("pmtool_password");
     new LoginPage()
       .openPmtool()
-      .typeUsername("cy_podzim_2023")
-      .typePassword("CypressPodzim")
-      .clickLogin();
+      .typeUsername(username)
+      .typePassword(password)
+      .clickLogin()
+      .openProjects();
   });
   it("Create project and task", () => {
-    new ProjectPage().openProjects().clickAddProject();
+    const todayDate = "2023-11-14";
+    const randomInt = faker.number.int({ max: 9999 });
+    const projectName = `PARIKOVA_self-exercise_${randomInt}`;
+    cy.fixture("test.txt", { encoding: null }).as("uploadFile");
+
+    new ProjectPage()
+      .clickAddProject()
+      .selectPriority("High")
+      .selectStatus("Open")
+      .typeProjectName(projectName)
+      .typeStartDate(todayDate)
+      .insertFileToUpload();
   });
 });

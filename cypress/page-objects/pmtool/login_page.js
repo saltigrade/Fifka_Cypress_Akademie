@@ -28,6 +28,7 @@ export class LoginPage {
     cy.get(this.passwordInput).type(password);
     return this;
   }
+  //aby nebylo vidět heslo, uprav na: .type(password, { log: false })
 
   clickLogin() {
     cy.get(this.loginButton).click();
