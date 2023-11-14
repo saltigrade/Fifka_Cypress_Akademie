@@ -6,21 +6,22 @@ export class ProjectPage extends HeaderSection {
   constructor() {
     super();
     this.addProject = "button[test_id = 'Add Project']";
-    this.nameInput = "div[data-testid='Name']";
-    this.saveButton = "button[type='submit']";
+    this.projectsTable = ".table-bordered";
+    cy.get(this.projectsTable).should("be.visible");
+    // this.nameInput = "div[data-testid='Name']";
+    // this.saveButton = "button[type='submit']";
   }
-  // zde mnou vytvořené selektory
 
   clickAddProject() {
     cy.get(this.addProject).click();
     return CreateProjectModal;
   }
-  typeName(name) {
-    cy.get(this.nameInput).type(name);
-    return this;
-  }
-  clickSave() {
-    cy.get(this.saveButton).click();
-    return this;
-  }
+  // typeName(name) {
+  //   cy.get(this.nameInput).type(name);
+  //   return this;
+  // }
+  // clickSave() {
+  //   cy.get(this.saveButton).click();
+  //   return this;
+  // }
 }

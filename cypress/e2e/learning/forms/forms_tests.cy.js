@@ -38,10 +38,10 @@ describe("Forms tests", () => {
       .should("be.visible")
       .should("have.text", "Form submitted successfully!");
   });
-  //   it.skip("Upload file", () => {
-  //     const fileName = "c:UsershamanDownloadsMiluše Hamanová - Škoda Rapid.pdf";
-  //     cy.get("#file-upload").selectFile(fileName);
-  //   });
+  // it.only("Upload file", () => {
+  //   const fileName = "/Users/haman/Downloads/3.jpg";
+  //   cy.get("#file-upload").selectFile(fileName);
+  // });
   //nevím, jak vytvořit cestu k souboru, ale není dobré používat soubory z pc
   it("Upload file fixtures", () => {
     cy.fixture("test.txt", { encoding: null }).as("uploadFile");
