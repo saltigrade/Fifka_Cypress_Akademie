@@ -14,7 +14,7 @@ export class ProjectPage extends HeaderSection {
 
   clickAddProject() {
     cy.get(this.addProject).click();
-    return CreateProjectModal;
+    return new CreateProjectModal();
   }
   // typeName(name) {
   //   cy.get(this.nameInput).type(name);
