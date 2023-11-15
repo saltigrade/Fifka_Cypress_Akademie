@@ -1,21 +1,3 @@
-// import { LoginPage } from "../../page-objects/pmtool/login_page";
-
-// describe("Fluent Login tests", () => {
-//   beforeEach(() => {
-//     new LoginPage().openPmtool();
-//   });
-//   it("Login to pmtool using Fluent API test", () => {
-//     let username = Cypress.env("pmtool_username");
-//     let password = Cypress.env("pmtool_password");
-//     new LoginPage()
-//       .typeUsername(username)
-//       .typePassword(password)
-//       .clickLogin()
-//       .clickProfile()
-//       .clickLogout();
-//   });
-// });
-
 import { LoginPage } from "../../page-objects/pmtool/login_page";
 
 describe("Fluent Login tests", () => {
@@ -38,3 +20,21 @@ describe("Fluent Login tests", () => {
   //   });
   // });
 });
+
+// import { LoginPage } from "../../page-objects/pmtool/login_page";
+
+// describe("Fluent Login tests", () => {
+//   beforeEach(() => {
+//     new LoginPage().openPmtool();
+//   });
+//   it("Login to pmtool using Fluent API test", () => {
+//     let username = Cypress.env("pmtool_username");
+//     let password = Cypress.env("pmtool_password");
+//     new LoginPage()
+//       .typeUsername(username)
+//       .typePassword(password)
+//       .clickLogin()
+//       .clickProfile()
+//       .clickLogout();
+//   });
+// });
