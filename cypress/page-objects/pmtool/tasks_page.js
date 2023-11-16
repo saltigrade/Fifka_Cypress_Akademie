@@ -6,7 +6,7 @@ export class TasksPage extends HeaderSection {
   constructor() {
     super();
     this.addTaskButton = "button[test_id='Add Task']";
-    this.projectInfoButton = "navbar-header .navbar-brand";
+    this.projectInfoButton = ".navbar-header .navbar-brand";
   }
 
   clickAddTask() {

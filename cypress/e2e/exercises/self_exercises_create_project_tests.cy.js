@@ -14,11 +14,12 @@ describe("Self exercise E2E PMTool - create new project and task", () => {
       .openProjects();
   });
   it("Create project and task", () => {
-    const todayDate = "2023-11-14";
+    const todayDate = "2023-11-16";
     const randomInt = faker.number.int({ max: 9999 });
-    const projectName = `PARIKOVA_self-exercise_${randomInt}`;
+    const projectName = `FIFKA_self-exercise_${randomInt}`;
     cy.fixture("test.txt", { encoding: null }).as("uploadFile");
     const taskName = "FIFKA_TASK_" + faker.number.int({ max: 9999 });
+    const todayDateProjectInfo = "16/11/2023";
 
     new ProjectPage()
       .clickAddProject()
@@ -29,10 +30,15 @@ describe("Self exercise E2E PMTool - create new project and task", () => {
       .insertFileToUpload()
       .clickSave()
       .clickAddTask()
-      .selectType("Change")
       .selectStatus("Open")
+      .selectType("Change")
       .typeName(taskName)
       .clickSave()
-      .clickProjectInfo();
+      .clickProjectInfo()
+      .projectTitleHasText(projectName)
+      .createdByHasText("a a")
+      .addedDateContainText(todayDateProjectInfo)
+      .startDateHasText(todayDateProjectInfo)
+      .statusHasText("Open");
   });
 });
