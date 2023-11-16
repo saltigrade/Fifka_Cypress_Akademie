@@ -18,6 +18,7 @@ describe("Self exercise E2E PMTool - create new project and task", () => {
     const randomInt = faker.number.int({ max: 9999 });
     const projectName = `PARIKOVA_self-exercise_${randomInt}`;
     cy.fixture("test.txt", { encoding: null }).as("uploadFile");
+    const taskName = "FIFKA_TASK_" + faker.number.int({ max: 9999 });
 
     new ProjectPage()
       .clickAddProject()
@@ -25,6 +26,13 @@ describe("Self exercise E2E PMTool - create new project and task", () => {
       .selectStatus("Open")
       .typeProjectName(projectName)
       .typeStartDate(todayDate)
-      .insertFileToUpload();
+      .insertFileToUpload()
+      .clickSave()
+      .clickAddTask()
+      .selectType("Change")
+      .selectStatus("Open")
+      .typeName(taskName)
+      .clickSave()
+      .clickProjectInfo();
   });
 });

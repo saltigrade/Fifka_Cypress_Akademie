@@ -1,3 +1,6 @@
+import { ProjectPage } from "./project_page";
+import { TasksPage } from "./tasks_page";
+
 export class CreateProjectModal {
   constructor() {
     this.prioritySelect = "div[data-testid='Priority'] select";
@@ -5,6 +8,7 @@ export class CreateProjectModal {
     this.nameInput = "div[data-testid='Name'] input";
     this.startDateInput = "div[data-testid='Start Date'] input";
     this.fileUpload = "input[type='file'][data-msg-accept]";
+    this.saveButton = "button[type='submit']";
   }
 
   selectPriority(priority) {
@@ -30,6 +34,11 @@ export class CreateProjectModal {
   // ! Musí být nastavený alias uploadFile v testu
   insertFileToUpload() {
     cy.get(this.fileUpload).selectFile("@uploadFile", { force: true });
+    cy.wait(500);
     return this;
+  }
+  clickSave() {
+    cy.get(this.saveButton).click();
+    return new TasksPage();
   }
 }

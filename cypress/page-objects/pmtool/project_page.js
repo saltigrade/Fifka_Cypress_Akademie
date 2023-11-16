@@ -9,7 +9,6 @@ export class ProjectPage extends HeaderSection {
     this.projectsTable = ".table-bordered";
     cy.get(this.projectsTable).should("be.visible");
     // this.nameInput = "div[data-testid='Name']";
-    // this.saveButton = "button[type='submit']";
   }
 
   clickAddProject() {
@@ -18,10 +17,6 @@ export class ProjectPage extends HeaderSection {
   }
   // typeName(name) {
   //   cy.get(this.nameInput).type(name);
-  //   return this;
-  // }
-  // clickSave() {
-  //   cy.get(this.saveButton).click();
   //   return this;
   // }
 }
