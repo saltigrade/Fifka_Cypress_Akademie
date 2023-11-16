@@ -1,3 +1,4 @@
+import { CreateAccount } from "./create_account";
 import { ProductSkinsheenBronzerStickPage } from "./product_skinsheen_bronzer_stick_page";
 
 export class HomePage {
@@ -22,7 +23,7 @@ export class HomePage {
   }
   clickContinueButton() {
     cy.get(this.continueButton).click();
-    // TODO: dodělat return statement jakmile bude hotový page-object return new CreateAccount();
+    return new CreateAccount();
   }
 
   // clickSkinsheenBronzerStickName() {
