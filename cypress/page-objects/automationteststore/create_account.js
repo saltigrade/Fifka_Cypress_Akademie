@@ -15,18 +15,23 @@ export class CreateAccount {
     this.username = "#AccountFrm_loginname";
     this.password = "#AccountFrm_password";
     this.confirmPassword = "#AccountFrm_confirm";
-    this.subscribe = 'input[(name = "newsletter")]';
+    this.subscribe =
+      "div[class='form-group'] label[class='col-sm-4 control-label']";
+    this.subscribeNo = "#AccountFrm_newsletter0";
+    this.subscribeYes = "#AccountFrm_newsletter1";
     this.privacyPolicy = "#AccountFrm_agree";
-    this.confirmButton = 'button[title = "Continue"]';
-    // #AccountFrm
+    this.confirmButton = "#AccountFrm";
+    //  button[title = "Continue"]
     // this.messageAccount =
   }
   typeFirstName(firstname) {
     cy.get(this.firstName).type(firstname);
+    cy.get(this.firstName).should("have.value", firstname);
     return this;
   }
   typeLastName(lastname) {
     cy.get(this.lastName).type(lastname);
+    cy.get(this.lastName).should("have.value", lastname);
     return this;
   }
   typeEmail(email) {
@@ -35,26 +40,32 @@ export class CreateAccount {
   }
   typeTelephone(telephone) {
     cy.get(this.telephone).type(telephone);
+    cy.get(this.telephone).should("have.value", telephone);
     return this;
   }
   typeFax(fax) {
     cy.get(this.fax).type(fax);
+    cy.get(this.fax).should("have.value", fax);
     return this;
   }
   typeCompany(company) {
     cy.get(this.company).type(company);
+    cy.get(this.company).should("have.value", company);
     return this;
   }
   typeAddress1(address1) {
     cy.get(this.address1).type(address1);
+    cy.get(this.address1).should("have.value", address1);
     return this;
   }
   typeAddress2(address2) {
     cy.get(this.address2).type(address2);
+    cy.get(this.address2).should("have.value", address2);
     return this;
   }
   typeCity(city) {
     cy.get(this.city).type(city);
+    cy.get(this.city).should("have.value", city);
     return this;
   }
   selectRegionState(regionState) {
@@ -63,6 +74,7 @@ export class CreateAccount {
   }
   typeZipCode(zipCode) {
     cy.get(this.zipCode).type(zipCode);
+    cy.get(this.zipCode).should("have.value", zipCode);
     return this;
   }
   selectCountry(country) {
@@ -77,16 +89,33 @@ export class CreateAccount {
     cy.get(this.password).type(password);
     return this;
   }
+  typeConfirmPassword(password) {
+    cy.get(this.confirmPassword).type(password);
+    return this;
+  }
   checkSubscribe() {
-    cy.get(this.subscribe).check();
+    cy.get(this.subscribeNo).check("0");
+    cy.get(this.subscribeNo).should("be.checked");
+    cy.get(this.subscribeYes).should("not.be.checked");
     return this;
   }
   checkPrivacyPolicy() {
-    cy.get(this.privacyPolicy).check();
+    cy.get(this.privacyPolicy).check("1");
+    cy.get(this.privacyPolicy).should("be.checked");
     return this;
   }
   submitConfirmButton() {
     cy.get(this.confirmButton).submit();
+    cy.get(".maintext")
+      .should("be.visible")
+      .and("have.text", "Your Account Has Been Created!");
     return this;
   }
 }
+
+// it("Submit form", () => {
+//   cy.get("form").submit();
+//   cy.get("#message-box")
+//     .should("be.visible")
+//     .and("have.text", "Form submitted successfully!");
+// });
