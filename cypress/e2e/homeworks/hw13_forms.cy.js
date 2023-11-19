@@ -7,8 +7,8 @@ describe("Automation test store - registration", () => {
   });
   it("Login or register and create account", () => {
     const email = faker.internet.exampleEmail();
-    // let username = Cypress.env("automationteststore_username");
-    // let password = Cypress.env("automationteststore_password");
+    let username = Cypress.env("automationteststore_username");
+    let password = Cypress.env("automationteststore_password");
     new HomePage()
       .clickLoginRegisterButton()
       .clickContinueButton()
@@ -23,6 +23,12 @@ describe("Automation test store - registration", () => {
       .typeCity("Praha")
       .selectCountry("Czech Republic")
       .selectRegionState("Vysocina")
-      .typeZipCode("18100");
+      .typeZipCode("18100")
+      .typeUsername(username)
+      .typePassword(password)
+      .typeConfirmPassword(password)
+      .checkSubscribe()
+      .checkPrivacyPolicy()
+      .submitConfirmButton();
   });
 });
