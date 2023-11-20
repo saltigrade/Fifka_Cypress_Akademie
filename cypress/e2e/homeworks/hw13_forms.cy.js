@@ -32,3 +32,5 @@ describe("Automation test store - registration", () => {
       .submitConfirmButton();
   });
 });
+
+// option[value = '901'] - tento selektor pro Vysocina nefunguje

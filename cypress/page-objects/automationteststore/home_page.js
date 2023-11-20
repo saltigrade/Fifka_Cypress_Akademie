@@ -8,6 +8,7 @@ export class HomePage {
     this.continueButton = 'button[title = "Continue"]';
     // this.welcomeText = "div[class = 'welcome_msg'] h4";
     // cy.get(this.welcomeText).should("be.visible");
+
     // this.skinsheenBronzerStickNameButton =
     //   "#block_frame_featured_1769 > .thumbnails > :nth-child(1) > .fixed_wrapper > .fixed > .prdocutname";
   }

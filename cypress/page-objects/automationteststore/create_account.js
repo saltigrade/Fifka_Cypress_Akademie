@@ -22,7 +22,8 @@ export class CreateAccount {
     this.privacyPolicy = "#AccountFrm_agree";
     this.confirmButton = "#AccountFrm";
     //  button[title = "Continue"]
-    // this.messageAccount =
+    this.messageAccount = ".maintext";
+    //.heading1 - také k message, buď sám selektor nebo i s class maintext
   }
   typeFirstName(firstname) {
     cy.get(this.firstName).type(firstname);
@@ -35,7 +36,7 @@ export class CreateAccount {
     return this;
   }
   typeEmail(email) {
-    cy.get(this.email).type(email);
+    cy.get(this.email).type(email).should("have.value", email);
     return this;
   }
   typeTelephone(telephone) {
@@ -69,7 +70,7 @@ export class CreateAccount {
     return this;
   }
   selectRegionState(regionState) {
-    cy.get(this.regionState).select(regionState);
+    cy.get(this.regionState).select(regionState).should("have.value", "901");
     return this;
   }
   typeZipCode(zipCode) {
@@ -78,19 +79,19 @@ export class CreateAccount {
     return this;
   }
   selectCountry(country) {
-    cy.get(this.country).select(country).wait(1000);
+    cy.get(this.country).select(country).wait(1000).should("have.value", "56");
     return this;
   }
   typeUsername(username) {
-    cy.get(this.username).type(username);
+    cy.get(this.username).type(username).should("have.value", username);
     return this;
   }
   typePassword(password) {
-    cy.get(this.password).type(password);
+    cy.get(this.password).type(password).should("have.value", password);
     return this;
   }
   typeConfirmPassword(password) {
-    cy.get(this.confirmPassword).type(password);
+    cy.get(this.confirmPassword).type(password).should("have.value", password);
     return this;
   }
   checkSubscribe() {
@@ -106,16 +107,9 @@ export class CreateAccount {
   }
   submitConfirmButton() {
     cy.get(this.confirmButton).submit();
-    cy.get(".maintext")
+    cy.get(this.messageAccount)
       .should("be.visible")
-      .and("have.text", "Your Account Has Been Created!");
+      .and("have.text", " Your Account Has Been Created!");
     return this;
   }
 }
-
-// it("Submit form", () => {
-//   cy.get("form").submit();
-//   cy.get("#message-box")
-//     .should("be.visible")
-//     .and("have.text", "Form submitted successfully!");
-// });
