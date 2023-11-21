@@ -4,7 +4,7 @@ import { HomePage } from "./home_page";
 
 export class ProjectPage extends HeaderSection {
   constructor() {
-    super();
+    super("module=items/items&path=21");
     this.addProject = "button[test_id = 'Add Project']";
     this.projectsTable = ".table-bordered";
     cy.get(this.projectsTable).should("be.visible");

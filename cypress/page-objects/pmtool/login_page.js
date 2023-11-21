@@ -39,6 +39,11 @@ export class LoginPage {
     cy.get(this.forgetPasswordButton).click();
     return new LostPasswordPage();
   }
+  pageHeaderIsVisible() {
+    cy.get(this.pageHeader).should("be.visible");
+    return this;
+  }
+
   pageHeaderHasText(headerText) {
     cy.get(this.pageHeader).should("have.text", headerText);
     return this;
@@ -51,6 +56,16 @@ export class LoginPage {
     );
     return this;
   }
+  passwordIsVisible() {
+    cy.get(this.passwordInput).should("be.visible");
+    return this;
+  }
+
+  passwordHasValue(value) {
+    cy.get(this.passwordInput).should("have.value", value);
+    return this;
+  }
+
   usernamePlaceholder(placeholderText) {
     cy.get(this.usernameInput).should(
       "have.attr",
@@ -59,11 +74,30 @@ export class LoginPage {
     );
     return this;
   }
-  rememberMeHasText(rememberMeText) {
-    cy.get(this.rememberMeCheckbox).should("have.text", rememberMeText);
+  usernameIsVisible() {
+    cy.get(this.usernameInput).should("be.visible");
     return this;
   }
 
+  usernameHasValue(value) {
+    cy.get(this.usernameInput).should("have.value", value);
+    return this;
+  }
+
+  rememberMeIsVisible() {
+    cy.get(this.rememberMeCheckbox).should("be.visible");
+    return this;
+  }
+
+  rememberMeHasText(rememberMeText) {
+    cy.get(this.rememberMeCheckbox).should("contain.text", rememberMeText);
+    return this;
+  }
+
+  passwordForgottenIsVisible() {
+    cy.get(this.forgetPasswordButton).should("be.visible");
+    return this;
+  }
   passwordForgottenHasText(elementText) {
     cy.get(this.forgetPasswordButton).should("have.text", elementText);
     return this;
