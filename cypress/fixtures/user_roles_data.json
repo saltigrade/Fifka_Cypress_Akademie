@@ -1,0 +1,17 @@
+[
+  {
+    "username_prefix": "Great_manager_",
+    "role": "Manager",
+    "password": "TestManager"
+  },
+  {
+    "username_prefix": "Average_Client_",
+    "role": "Client",
+    "password": "TestClient"
+  },
+  {
+    "username_prefix": "Skilled_Developer_",
+    "role": "Developer",
+    "password": "TestDeveloper"
+  }
+]
