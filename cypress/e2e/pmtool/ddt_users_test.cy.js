@@ -1,5 +1,3 @@
-// TOTO TED NE, PLATÍ DDT_USERS TEST!!!
-
 import usersData from "../../fixtures/users_roles_data.json";
 import { faker } from "@faker-js/faker";
 import { LoginPage } from "../../page-objects/pmtool/login_page";
