@@ -4,7 +4,7 @@ import { MenuSection } from "./menu_section";
 export class HeaderSection extends MenuSection {
   constructor(path) {
     super(path);
-    this.profileAnchor = "#user_dropdown > .dropdown-toggle";
+    this.profileAnchor = "li#user_dropdown > .dropdown-toggle";
     this.logoutAnchor = "#logout > a";
     this.usernameInProfileSection = ".username";
   }
@@ -20,5 +20,6 @@ export class HeaderSection extends MenuSection {
   }
   userNameHasFullName(fullName) {
     cy.get(this.usernameInProfileSection).should("contain.text", fullName);
+    return this;
   }
 }
