@@ -25,6 +25,5 @@ describe("Simple cypress test with faker", () => {
   });
 });
 
-/* Dotaz na password a confirm password pomocí Faker. Generuje se pokaždé nové heslo. 
-Dá se udělat, aby se zkopírovalo náhodně vygenerované heslo, abych mohla použít faker?
- */
+/* selector checkbox
+cy.get('input[name="agree"]').check(["1"]); */

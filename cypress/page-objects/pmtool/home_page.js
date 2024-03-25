@@ -3,9 +3,9 @@ import { ProjectPage } from "./project_page";
 
 export class HomePage extends HeaderSection {
   constructor() {
-    super("module=dashboard/dashboard");
+    super("module=dashboard/");
 
-    this.welcomePageHeader = "#welcome-page-header";
+    this.welcomePageHeader = ".header";
     cy.get(this.welcomePageHeader).should("be.visible");
   }
 }
