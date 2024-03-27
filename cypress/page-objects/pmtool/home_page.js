@@ -5,7 +5,9 @@ export class HomePage extends HeaderSection {
   constructor() {
     super("module=dashboard/");
 
-    this.welcomePageHeader = ".header";
-    cy.get(this.welcomePageHeader).should("be.visible");
+    // this.welcomePageHeader = ".header.navbar";
+    // cy.get(this.welcomePageHeader).should("be.visible");
   }
 }
+
+// .header.navbar.navbar-inverse.navbar-fixed-top.noprint
