@@ -43,11 +43,11 @@ describe("Forms tests", () => {
   //   cy.get("#file-upload").selectFile(fileName);
   // });
   //nevím, jak vytvořit cestu k souboru, ale není dobré používat soubory z pc
-  it("Upload file fixtures", () => {
+  it.only("Upload file fixtures", () => {
     cy.fixture("test.txt", { encoding: null }).as("uploadFile");
     cy.get("#file-upload").selectFile("@uploadFile");
   });
-  it.only("Type date", () => {
+  it("Type date", () => {
     cy.get("#datepicker").type("1990-05-01").should("have.value", "1990-05-01");
   });
 });
